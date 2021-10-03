@@ -1,1 +1,2 @@
 net stop MSSQLSERVER
+pause

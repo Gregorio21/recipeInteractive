@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="dd7dbf96-a039-40ef-a416-e27efdf585c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMD Files/ResetServer.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/CMD Files/ResetServer.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMD Files/StopServer.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/CMD Files/StopServer.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test.mdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test_log.ldf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StartWebsite.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StopServer.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
