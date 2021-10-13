@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd7dbf96-a039-40ef-a416-e27efdf585c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mysite/templates/createAccount.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/templates/createRecipe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMD Files/ResetServer.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/CMD Files/ResetServer.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMD Files/StopServer.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/CMD Files/StopServer.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test.mdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test_log.ldf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/Test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -31,6 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    {{ Ingredients.management_form }}
+    {% for Ingredient in Ingredients.forms %}
+        <p>{{ Ingredient }}</p>
+    {% endfor %}
+    {{ Steps.management_form }}
+    {% for Step in Steps.forms %}
+        <p>{{ Step }}</p>
+    {% endfor %}
+    <br>
+    <br>{{ingredient}}
+    <p><input type="submit" value="Submit" name="commit" id="message_submit" /></p>
+</form>
+</body>
+</html>

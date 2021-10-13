@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<HTML lang="en">
+<HTML>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <p><label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"/></p>
+    <p><label for="username">User Name:</label><br>
+        <input type="username" id="username" name="username"/></p>
+    <p><label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"/></p>
+    <p><input type="Submit" value="Create" name="commit" id="CreateLogin" /></p>
+</form>
+</body>
+</html>
+</HTML>
