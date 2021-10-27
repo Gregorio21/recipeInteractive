@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<style>
+  #block {
+    padding-left: 1%;
+  }
+  #brand {
+    font-weight: bold;
+    padding-left: 1%;
+  }
+  #logout {
+    padding-right: 1%
+  }
+</style>
+<body>
+{% url 'CreateRecipe' as CreateRecipe %}
+{% url 'CreateAccount' as CreateAccount %}
+{% url 'logout' as logout %}
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" id="brand">Interactive Recipes</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-item nav-link {% if request.resolver_match.url_name == "CreateRecipe" %}active{% endif %}" href="{{ CreateRecipe }}">Create Recipe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link {% if request.resolver_match.url_name == "CreateAccount" %}active{% endif %}" href="{{ CreateAccount }}">Create Account</a>
+      </li>
+    </ul>
+  </div>
+    <form class="d-flex" id="logout" action="{{ logout }}">
+      <button class="btn btn-danger" type="submit" {% if not user.is_authenticated %} disabled {% endif %}>Logout</button>
+    </form>
+    <form class="d-flex" action="{% url "Search" %}" method="GET">
+        {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit" >Search</button>
+    </form>
+
+
+
+</nav>
+<br>
+<div id="block">
+  {% block content %}
+  {% endblock %}
+</div>
+</body>
+</html>

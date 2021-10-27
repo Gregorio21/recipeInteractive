@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 
@@ -6,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Recipe(models.Model):
     Title = models.CharField(max_length=255)
-    Description = models.TextField()
+    Description = models.TextField(default="")
     Privacy = models.BooleanField()
     UserId = models.ForeignKey(User,on_delete=models.CASCADE)
 
@@ -21,19 +22,27 @@ class Ingredient(models.Model):
 class Step(models.Model):
     StepOrder = models.IntegerField()
     Step = models.TextField()
+    RecipeId = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
         fields = ['Title','Description','Privacy']
-        #fields = '__all__'
+        widgets = {
+            'Description': forms.Textarea(attrs={'rows': 2, 'cols': 30}),
+        }
 
 class IngredientForm(ModelForm):
+    #Delete = forms.BooleanField(initial=False)
     class Meta:
         model = Ingredient
-        fields = ['IngredientName','Unit','Quantity']
+        fields = ['IngredientName','Quantity','Unit','id']
 
 class StepForm(ModelForm):
+    #Delete = forms.BooleanField(initial=False)
     class Meta:
         model = Step
-        fields = ['Step']
+        fields = ['Step','id']
+        widgets = {
+            'Step': forms.Textarea(attrs={'rows': 2, 'cols': 30}),
+        }

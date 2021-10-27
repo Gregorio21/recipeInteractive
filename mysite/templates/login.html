@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "header.html" %}
+{% block content %}
 <form method="post">
     {% csrf_token %}
     <p><label for="username">User Name:</label><br>
@@ -13,5 +10,5 @@
         <input type="password" id="password" name="password"/></p>
     <p><input type="Submit" value="Login" name="commit" id="Login" /></p>
 </form>
-</body>
+{% endblock %}
 </html>

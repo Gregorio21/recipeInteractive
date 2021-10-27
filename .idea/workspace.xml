@@ -2,22 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd7dbf96-a039-40ef-a416-e27efdf585c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mysite/templates/createAccount.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/templates/createRecipe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/templates/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/templates/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/templates/viewRecipe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test.mdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test_log.ldf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/Test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/createAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/createAccount.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/createRecipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/createRecipe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +31,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1yzm29bb4cL8TJ4WyGaijXmce2N" />
   <component name="ProjectViewState">
@@ -74,5 +79,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mysite/CreateEditRecipe/models.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

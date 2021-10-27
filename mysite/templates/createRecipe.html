@@ -1,24 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method="post">
+<style>
+    #Step_forms {
+        padding-top: 1%;
+    }
+    #submit {
+        padding-top: 1%;
+    }
+</style>
+{% extends "header.html" %}
+{% block content %}
+<form method="POST">
     {% csrf_token %}
     {{form}}
     {{ Ingredients.management_form }}
-    {% for Ingredient in Ingredients.forms %}
-        <p>{{ Ingredient }}</p>
-    {% endfor %}
+    <div id="Ingredient_forms" name="Ingredient_forms">
+        <p>Ingredients: </p>
+        {% for Ingredient in Ingredients.forms %}
+            <div {% if Ingredient.Delete.value %} style="display: none" {% endif %}>
+                {{ Ingredient.IngredientName.label_tag }}
+                {{ Ingredient.IngredientName }}
+                {{ Ingredient.Quantity.label_tag }}
+                {{ Ingredient.Quantity }}
+                {{ Ingredient.Unit.label_tag }}
+                {{ Ingredient.Unit }}
+                <p style="display: none" name="Delete">{{ Ingredient.DELETE }}</p>
+                <p style="display: none" name="Delete">{{ Ingredient.id }}</p>
+                <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
+
+            </div>
+        {% endfor %}
+    </div>
+    <input type="button" class="btn btn-success btn-sm" value="+" id="add_more">
+    <div id="empty_form" style="display:none">
+        <div>
+            {{ Ingredients.empty_form.IngredientName.label_tag }}
+            {{ Ingredients.empty_form.IngredientName }}
+            {{ Ingredients.empty_form.Quantity.label_tag }}
+            {{ Ingredients.empty_form.Quantity }}
+            {{ Ingredients.empty_form.Unit.label_tag }}
+            {{ Ingredients.empty_form.Unit }}
+            <p style="display: none" name="Delete">{{ Ingredients.empty_form.DELETE }}</p>
+            <p style="display: none" name="Delete">{{ Ingredients.empty_form.id }}</p>
+            <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
+
+        </div>
+    </div>
     {{ Steps.management_form }}
-    {% for Step in Steps.forms %}
-        <p>{{ Step }}</p>
-    {% endfor %}
-    <br>
-    <br>{{ingredient}}
-    <p><input type="submit" value="Submit" name="commit" id="message_submit" /></p>
+    <div id="Step_forms">
+        <p>Directions: </p>
+        {% for Step in Steps.forms %}
+            <div {% if Step.Delete.value %} style="display: none" {% endif %}>
+                {{ Step.Step.label_tag }}
+                {{ Step.Step }}
+                <p style="display: none" name="Delete">{{ Step.DELETE }}</p>
+                <p style="display: none" name="Delete">{{ Step.id }}</p>
+                <input class="btn btn-danger delete-step btn-sm" type="button" value="-">
+            </div>
+        {% endfor %}
+    </div>
+    <div id="empty_form2" style="display:none">
+        <div>
+            {{ Steps.empty_form.Step.label_tag }}
+            {{ Steps.empty_form.Step }}
+            <p style="display: none" name="Delete">{{ Steps.empty_form.DELETE }}</p>
+            <p style="display: none" name="Delete">{{ Steps.empty_form.id }}</p>
+            <input class="btn btn-danger delete-step btn-sm" type="button" value="-">
+        </div>
+    </div>
+    <input type="button" class="btn btn-success btn-sm" value="+" id="add_more2">
+    <p id="submit"><input type="submit" value="Submit" class="btn btn-primary" name="commit" id="message_submit" /></p>
 </form>
-</body>
+<script>
+    $("#Ingredient_forms").on('click',".btn.btn-danger.delete-ingredient", function() {
+        var curr = $(this).parent()
+        curr.css("display", "none")
+        var del = curr.children().eq(6).children()
+        console.log(del)
+        del.prop('checked', true)
+        console.log(del)
+    });
+</script>
+<script>
+    $("#Step_forms").on('click',".btn.btn-danger.delete-step", function() {
+        var curr = $(this).parent()
+        curr.css("display", "none")
+        var del = curr.children().eq(2).children()
+        console.log(del)
+        del.prop('checked', true)
+        console.log(del)
+    });
+</script>
+<script>
+        $('#add_more').click(function() {
+            var form_idx = $('#id_Ingredient-TOTAL_FORMS').val();
+            $('#Ingredient_forms').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
+            $('#id_Ingredient-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+        });
+</script>
+<script>
+        $('#add_more2').click(function() {
+            var form_idx = $('#id_Step-TOTAL_FORMS').val();
+            $('#Step_forms').append($('#empty_form2').html().replace(/__prefix__/g, form_idx));
+            $('#id_Step-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+
+        });
+</script>
+{% endblock %}
 </html>

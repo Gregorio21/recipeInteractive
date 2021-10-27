@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "header.html" %}
+{% block content %}
+    {% csrf_token %}
+<style>
+        #noresults {
+            font-size: 200%
+        }
+</style>
+    <div class="container d-flex flex-column h-100">
+        <div class="row justify-content-center align-self-center">
+            {% if not recipe %} <p class="text-center mx-auto" id="noresults">Recipe not found!</p>
+            {% else %}
+                {% for r in recipe %}
+                    <h1 class="text-center mx-auto" style="font-size: 200%; ">{{ r.Title }} </h1>
+                    <br>
+                       <p class="text-center mx-auto"> {{ r.Description }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <br>
+        <p class="text-left mx-auto"> Ingredients: </p>
+        {% for ingredient in ingredients %}
+            <div class="row justify-content-center align-self-center">
+                <p class="text-center mx-auto"> {{ ingredient.IngredientOrder }}. {{ ingredient.Quantity }}
+                {{ ingredient.Unit }}
+                    {{ ingredient.IngredientName }}
+                </p>
+            </div>
+        {% endfor %}
+        <p class="text-left mx-auto"> Directions: </p>
+        {% for step in steps %}
+            <div class="row justify-content-center align-self-center">
+                <p class="text-center mx-auto"> {{ step.StepOrder }}. {{ step.Step }}</p>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+</html>

@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <HTML lang="en">
-<HTML>
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends "header.html" %}
+{% block content %}
 <form method="post">
     {% csrf_token %}
     <p><label for="email">Email:</label><br>
@@ -16,6 +12,6 @@
         <input type="password" id="password" name="password"/></p>
     <p><input type="Submit" value="Create" name="commit" id="CreateLogin" /></p>
 </form>
-</body>
+{% endblock %}
 </html>
 </HTML>
