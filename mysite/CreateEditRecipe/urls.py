@@ -11,5 +11,7 @@ urlpatterns = [
     path('search/<str:search>', views.search,name="Search"),
     path('search/', views.search,name="Search"),
     path('viewRecipe/<int:id>',views.viewRecipe,name="ViewRecipe"),
+    path('account/',views.account,name="Account"),
+    path('delete/',views.delete,name="Delete"),
 
 ]

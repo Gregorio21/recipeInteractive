@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd7dbf96-a039-40ef-a416-e27efdf585c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mysite/templates/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/templates/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/templates/viewRecipe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/templates/account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test.mdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test_log.ldf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/createAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/createAccount.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/createRecipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/createRecipe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

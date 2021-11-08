@@ -12,6 +12,7 @@
         <div class="row justify-content-center align-self-center">
             {% if not results %} <p class="text-center mx-auto" id="noresults">no results</p>{% endif %}
         </div>
+        <!-- displays all of the recipes that match the search -->
         {% for result in results %}
         <form action="{% url 'ViewRecipe' result.pk %}" method="GET">
             <button class="btn justify-content-center align-self-center" type="submit" style="background: lightblue; width: 100%; padding-bottom: 1%; border-style: solid; padding-top: 1%; border-width: thin; border-color: grey; border-radius: 10px">

@@ -12,8 +12,10 @@
 {% block content %}
 <form method="POST">
     {% csrf_token %}
+    <!-- form for Recipe model -->
     {{form}}
     {{ Ingredients.management_form }}
+    <!-- forms for all of the ingredient models -->
     <div id="Ingredient_forms" name="Ingredient_forms">
         <p>Ingredients: </p>
         {% for Ingredient in Ingredients.forms %}
@@ -26,12 +28,15 @@
                 {{ Ingredient.Unit }}
                 <p style="display: none" name="Delete">{{ Ingredient.DELETE }}</p>
                 <p style="display: none" name="Delete">{{ Ingredient.id }}</p>
+                <!-- allows you to delete this form from the database upon submitting -->
                 <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
 
             </div>
         {% endfor %}
     </div>
+    <!-- adds another Ingredient form -->
     <input type="button" class="btn btn-success btn-sm" value="+" id="add_more">
+    <!-- for copying -->
     <div id="empty_form" style="display:none">
         <div>
             {{ Ingredients.empty_form.IngredientName.label_tag }}
@@ -47,6 +52,7 @@
         </div>
     </div>
     {{ Steps.management_form }}
+    <!-- forms for all of the Step models -->
     <div id="Step_forms">
         <p>Directions: </p>
         {% for Step in Steps.forms %}
@@ -55,19 +61,23 @@
                 {{ Step.Step }}
                 <p style="display: none" name="Delete">{{ Step.DELETE }}</p>
                 <p style="display: none" name="Delete">{{ Step.id }}</p>
+                <!-- allows you to delete this form from the database upon submitting -->
                 <input class="btn btn-danger delete-step btn-sm" type="button" value="-">
             </div>
         {% endfor %}
     </div>
+    <!-- for copying -->
     <div id="empty_form2" style="display:none">
         <div>
             {{ Steps.empty_form.Step.label_tag }}
             {{ Steps.empty_form.Step }}
             <p style="display: none" name="Delete">{{ Steps.empty_form.DELETE }}</p>
             <p style="display: none" name="Delete">{{ Steps.empty_form.id }}</p>
+            <!-- allows you to delete this form from the database upon submitting -->
             <input class="btn btn-danger delete-step btn-sm" type="button" value="-">
         </div>
     </div>
+    <!-- adds another Step form -->
     <input type="button" class="btn btn-success btn-sm" value="+" id="add_more2">
     <p id="submit"><input type="submit" value="Submit" class="btn btn-primary" name="commit" id="message_submit" /></p>
 </form>

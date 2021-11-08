@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "header.html" %}
+{% block content %}
+    <style>
+        #noresults {
+            font-size: 200%
+        }
+    </style>
+    {% csrf_token %}
+    <p style="font-size: 300%; text-align: center" > Recipes Created by You:  </p>
+<br>
+    <!-- Displays all of the recipes created by the user and allows deletion of said recipes from the database,
+    clicking on a recipe allows that recipe to be edited -->
+    <div class="container d-flex flex-column h-100">
+        <div class="row justify-content-center align-self-center">
+            {% if not results %} <p class="text-center mx-auto" id="noresults">no results</p>{% endif %}
+        </div>
+        {% for result in results %}
+        <form class="row" action="{% url 'EditRecipe' result.pk %}" method="GET">
+            <button class="col btn justify-content-center align-self-center" type="submit" style="background: lightblue; width: 100%; padding-bottom: 1%; border-style: solid; padding-top: 1%; border-width: thin; border-color: grey; border-radius: 10px">
+                {{ result.Title }}
+                <br>
+                {{ result.Description }}
+            </button>
+        </form>
+        <form class="row" action="{% url 'Delete' %}" method="GET">
+            <input style="display: none" type="hidden" name="url" value="{{ request.path }}">
+            <input style="display: none" type="hidden" name="id" value="{{ result.id }}">
+           <button class="btn btn-danger" type="submit">DELETE</button>
+        </form>
+        <br>
+        {% endfor %}
+    </div>
+{% endblock %}
+</html>
