@@ -2,17 +2,36 @@
 <HTML lang="en">
 {% extends "header.html" %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    <!-- allows for the creation of an account that stores to the database -->
-    <p><label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"/></p>
-    <p><label for="username">User Name:</label><br>
-        <input type="username" id="username" name="username"/></p>
-    <p><label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"/></p>
-    <p><input type="Submit" value="Create" name="commit" id="CreateLogin" /></p>
-</form>
+<div class="d-flex justify-content-center align-items-center container">
+    <form method="post" class="row g-3 align-items-center border" style="padding-bottom: 1%;">
+        {% csrf_token %}
+        <!-- allows for the creation of an account that stores to the database -->
+        <div class="row-md-4">
+            <label for="email" class="form-label">Email:</label><br>
+            <div class="col">
+                <input type="email" class="form-control" id="email" name="email"/>
+            </div>
+        </div>
+        <div class="row-md-4">
+            <label for="username" class="form-label">User Name:</label><br>
+            <div class="col">
+                <input type="username" class="form-control" id="username" name="username"/>
+            </div>
+        </div>
+        <div class="row-md-4">
+            <label for="password" class="form-label">Password:</label><br>
+            <div class="col">
+                <input type="password" class="form-control" id="password" name="password"/>
+            </div>
+        </div>
+        <div class="row-md-4">
+            <div class="col">
+                <input type="Submit" class="form-control btn btn-success" value="Create" name="commit" id="CreateLogin" />
+            </div>
+        </div>
+    </form>
+</div>
+
 {% endblock %}
 </html>
 </HTML>

@@ -10,77 +10,72 @@
 </style>
 {% extends "header.html" %}
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <!-- form for Recipe model -->
-    {{form}}
-    {{ Ingredients.management_form }}
-    <!-- forms for all of the ingredient models -->
-    <div id="Ingredient_forms" name="Ingredient_forms">
-        <p>Ingredients: </p>
-        {% for Ingredient in Ingredients.forms %}
-            <div {% if Ingredient.Delete.value %} style="display: none" {% endif %}>
-                {{ Ingredient.IngredientName.label_tag }}
-                {{ Ingredient.IngredientName }}
-                {{ Ingredient.Quantity.label_tag }}
-                {{ Ingredient.Quantity }}
-                {{ Ingredient.Unit.label_tag }}
-                {{ Ingredient.Unit }}
-                <p style="display: none" name="Delete">{{ Ingredient.DELETE }}</p>
-                <p style="display: none" name="Delete">{{ Ingredient.id }}</p>
-                <!-- allows you to delete this form from the database upon submitting -->
-                <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
+{% load crispy_forms_tags %}
+<div class="d-flex justify-content-center align-items-center container border" style="padding: 2%">
+    <form method="POST" class="row gx-4 gy-4">
+        {% csrf_token %}
+        <!-- form for Recipe model -->
+        {{form | crispy}}
+        {{ Ingredients.management_form }}
+        <!-- forms for all of the ingredient models -->
+        <div id="Ingredient_forms" name="Ingredient_forms">
+            <h3>Ingredients: </h3>
+            {% for Ingredient in Ingredients.forms %}
+                <div {% if Ingredient.Delete.value %} style="display: none" {% endif %} class="d-flex align-items-center">
+                    {{ Ingredient.IngredientName | as_crispy_field }}
+                    {{ Ingredient.Quantity | as_crispy_field }}
+                    {{ Ingredient.Unit | as_crispy_field }}
+                    <p style="display: none" name="Delete">{{ Ingredient.DELETE }}</p>
+                    <p style="display: none" name="Delete">{{ Ingredient.id }}</p>
+                    <!-- allows you to delete this form from the database upon submitting -->
+                    <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
+                </div>
+            {% endfor %}
+        </div>
+        <!-- adds another Ingredient form -->
+        <input type="button" class="btn btn-success btn-sm" value="+" id="add_more">
+        <!-- for copying -->
+        <div id="empty_form" style="display:none">
+            <div class="d-flex align-items-center">
+                {{ Ingredients.empty_form.IngredientName | as_crispy_field}}
+                {{ Ingredients.empty_form.Quantity | as_crispy_field}}
+                {{ Ingredients.empty_form.Unit | as_crispy_field}}
+                <p style="display: none" name="Delete">{{ Ingredients.empty_form.DELETE }}</p>
+                <p style="display: none" name="Delete">{{ Ingredients.empty_form.id }}</p>
+                </span><input class="btn btn-danger delete-ingredient" type="button" value="-">
 
             </div>
-        {% endfor %}
-    </div>
-    <!-- adds another Ingredient form -->
-    <input type="button" class="btn btn-success btn-sm" value="+" id="add_more">
-    <!-- for copying -->
-    <div id="empty_form" style="display:none">
-        <div>
-            {{ Ingredients.empty_form.IngredientName.label_tag }}
-            {{ Ingredients.empty_form.IngredientName }}
-            {{ Ingredients.empty_form.Quantity.label_tag }}
-            {{ Ingredients.empty_form.Quantity }}
-            {{ Ingredients.empty_form.Unit.label_tag }}
-            {{ Ingredients.empty_form.Unit }}
-            <p style="display: none" name="Delete">{{ Ingredients.empty_form.DELETE }}</p>
-            <p style="display: none" name="Delete">{{ Ingredients.empty_form.id }}</p>
-            <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
-
         </div>
-    </div>
-    {{ Steps.management_form }}
-    <!-- forms for all of the Step models -->
-    <div id="Step_forms">
-        <p>Directions: </p>
-        {% for Step in Steps.forms %}
-            <div {% if Step.Delete.value %} style="display: none" {% endif %}>
-                {{ Step.Step.label_tag }}
-                {{ Step.Step }}
-                <p style="display: none" name="Delete">{{ Step.DELETE }}</p>
-                <p style="display: none" name="Delete">{{ Step.id }}</p>
+        {{ Steps.management_form }}
+        <!-- forms for all of the Step models -->
+        <div id="Step_forms">
+            <h3>Directions: </h3>
+            {% for Step in Steps.forms %}
+                <div style="{% if Step.Delete.value %} display: none; {% endif %} {% if Step.isSubStep.value %} margin-left: 8% {% endif %}" class="d-flex align-items-center">
+                    {{ Step.Step | as_crispy_field}}
+                    <p style="display: none" name="Delete">{{ Step.DELETE }}</p>
+                    <p style="display: none" name="Delete">{{ Step.id }}</p>
+                    <!-- allows you to delete this form from the database upon submitting -->
+                    <input class="btn btn-danger delete-step" type="button" value="-">
+                </div>
+            {% endfor %}
+        </div>
+        <!-- for copying -->
+        <div id="empty_form2" style="display:none">
+            <div class="d-flex align-items-center">
+                {{ Steps.empty_form.Step | as_crispy_field}}
+                <p style="display: none" name="Delete">{{ Steps.empty_form.DELETE }}</p>
+                <p style="display: none" name="Delete">{{ Steps.empty_form.id }}</p>
                 <!-- allows you to delete this form from the database upon submitting -->
-                <input class="btn btn-danger delete-step btn-sm" type="button" value="-">
+                <div><input class="btn btn-danger delete-step" type="button" value="-"></div>
             </div>
-        {% endfor %}
-    </div>
-    <!-- for copying -->
-    <div id="empty_form2" style="display:none">
-        <div>
-            {{ Steps.empty_form.Step.label_tag }}
-            {{ Steps.empty_form.Step }}
-            <p style="display: none" name="Delete">{{ Steps.empty_form.DELETE }}</p>
-            <p style="display: none" name="Delete">{{ Steps.empty_form.id }}</p>
-            <!-- allows you to delete this form from the database upon submitting -->
-            <input class="btn btn-danger delete-step btn-sm" type="button" value="-">
         </div>
-    </div>
-    <!-- adds another Step form -->
-    <input type="button" class="btn btn-success btn-sm" value="+" id="add_more2">
-    <p id="submit"><input type="submit" value="Submit" class="btn btn-primary" name="commit" id="message_submit" /></p>
-</form>
+        <!-- adds another Step form -->
+        <input type="button" class="btn btn-success btn-sm" value="+" id="add_more2">
+        <p id="submit"><input type="submit" value="Submit" class="btn btn-primary" name="commit" id="message_submit" /></p>
+    </form>
+</div>
+
 <script>
     $("#Ingredient_forms").on('click',".btn.btn-danger.delete-ingredient", function() {
         var curr = $(this).parent()
@@ -90,8 +85,7 @@
         del.prop('checked', true)
         console.log(del)
     });
-</script>
-<script>
+
     $("#Step_forms").on('click',".btn.btn-danger.delete-step", function() {
         var curr = $(this).parent()
         curr.css("display", "none")
@@ -100,21 +94,33 @@
         del.prop('checked', true)
         console.log(del)
     });
-</script>
-<script>
-        $('#add_more').click(function() {
-            var form_idx = $('#id_Ingredient-TOTAL_FORMS').val();
-            $('#Ingredient_forms').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
-            $('#id_Ingredient-TOTAL_FORMS').val(parseInt(form_idx) + 1);
-        });
-</script>
-<script>
-        $('#add_more2').click(function() {
-            var form_idx = $('#id_Step-TOTAL_FORMS').val();
-            $('#Step_forms').append($('#empty_form2').html().replace(/__prefix__/g, form_idx));
-            $('#id_Step-TOTAL_FORMS').val(parseInt(form_idx) + 1);
 
-        });
+    $('#add_more').click(function() {
+        var form_idx = $('#id_Ingredient-TOTAL_FORMS').val();
+        $('#Ingredient_forms').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
+        $('#id_Ingredient-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+    });
+
+    $('#add_more2').click(function() {
+        var form_idx = $('#id_Step-TOTAL_FORMS').val();
+        $('#Step_forms').append($('#empty_form2').html().replace(/__prefix__/g, form_idx));
+        $('#id_Step-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+
+    });
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
 </script>
 {% endblock %}
 </html>

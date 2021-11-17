@@ -2,6 +2,14 @@
 <html lang="en">
 {% extends "header.html" %}
 {% block content %}
+{% for message in messages %}
+
+    <div class="alert alert-danger">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+           {{ message }}
+    </div>
+
+{% endfor %}
 <form method="post">
     {% csrf_token %}
     <p><label for="username">User Name:</label><br>

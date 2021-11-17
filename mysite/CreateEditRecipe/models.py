@@ -2,6 +2,7 @@ from django.db import models
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
+from crispy_forms.helper import FormHelper
 
 # Create your models here.
 
@@ -24,9 +25,10 @@ class Ingredient(models.Model):
 
 #Model to store the steps of a recipe, foreign key to Recipe model
 class Step(models.Model):
-    StepOrder = models.IntegerField()
+    StepOrder = models.FloatField()
     Step = models.TextField()
     RecipeId = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    isSubStep = models.BooleanField(default=False)
 
 #modelform for the recipe model
 class RecipeForm(ModelForm):
@@ -40,16 +42,31 @@ class RecipeForm(ModelForm):
 #modelform for the Ingredinets model
 class IngredientForm(ModelForm):
     #Delete = forms.BooleanField(initial=False)
+    def __init__(self, *args, **kwargs):
+        super(IngredientForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        #self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-sm-2'
+        self.helper.field_class = 'col-sm-10'
     class Meta:
         model = Ingredient
         fields = ['IngredientName','Quantity','Unit','id']
 
+
+
+
 #modelform for the Steps model
 class StepForm(ModelForm):
     #Delete = forms.BooleanField(initial=False)
+    def __init__(self, *args, **kwargs):
+        super(StepForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        #self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-sm-2'
+        self.helper.field_class = 'col-sm-10'
     class Meta:
         model = Step
-        fields = ['Step','id']
+        fields = ['Step','id','isSubStep']
         widgets = {
             'Step': forms.Textarea(attrs={'rows': 2, 'cols': 30}),
         }

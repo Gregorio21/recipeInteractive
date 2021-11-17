@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.forms import formset_factory, inlineformset_factory, modelformset_factory
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 fmt = getattr(settings, 'LOG_FORMAT', None)
 lvl = getattr(settings, 'LOG_LEVEL', logging.DEBUG)
 
@@ -20,8 +21,12 @@ def loginView(request):
     context = {}
     if request.POST:
         user = authenticate(username=request.POST['username'],password=request.POST['password'])
-        login(request,user)
-        return redirect('CreateRecipe')
+        if user is not None:
+            login(request,user)
+            return redirect('CreateRecipe')
+        else:
+            messages.error(request, 'User Name or Password not correct')
+            return redirect('login')
     return render(request,'login.html',context)
 
 #allows you to create an account
@@ -38,8 +43,8 @@ def logout_view(request):
     return redirect("login")
 
 
-@login_required
 # allows you to create a new recipe in the database and redirects you to the editRecipe view on submit
+@login_required
 def createRecipe(request):
     context={}
     form = RecipeForm(request.POST or None)
@@ -84,8 +89,8 @@ def createRecipe(request):
 
     return render(request,'createRecipe.html',context)
 
-@login_required
 #allows you to update a recipe that is in the database
+@login_required
 def editRecipe(request,id=None):
     context={}
     obj = get_object_or_404(Recipe,id=id,UserId=request.user)
@@ -133,8 +138,8 @@ def editRecipe(request,id=None):
     context['Steps'] = StepFormSet
     return render(request,'createRecipe.html',context)
 
-@login_required
 #displays search results and allows you to view full recipe when a recipe is clicked on
+@login_required
 def search(request):
     context = {}
     result = Recipe.objects.filter(Title__icontains=request.GET["search"])
@@ -142,8 +147,8 @@ def search(request):
     context["results"] = result
     return render(request,'search.html',context)
 
-@login_required
 #displays recipe in view only form
+@login_required
 def viewRecipe(request,id=None):
     context = {}
     currRecipe = Recipe.objects.filter(id=id)
@@ -154,8 +159,8 @@ def viewRecipe(request,id=None):
     context["steps"] = Steps
     return render(request,'viewRecipe.html',context)
 
-@login_required
 #displays all recipes owned by current user
+@login_required
 def account(request):
     context={}
     UserId = request.user
@@ -163,8 +168,8 @@ def account(request):
     context['results'] = result
     return render(request,'account.html',context)
 
-@login_required
 #dletes specified recipe if owned by current account and redirects to previous page
+@login_required
 def delete(request):
     recipe = get_object_or_404(Recipe,id=request.GET["id"],UserId=request.user)
     url = request.GET["url"]
