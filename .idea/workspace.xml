@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd7dbf96-a039-40ef-a416-e27efdf585c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mysite/templates/Components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/Test.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test.mdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATA/Test_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/Test_log.ldf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/CreateEditRecipe/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/createAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/createAccount.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/createRecipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/createRecipe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +31,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1yzm29bb4cL8TJ4WyGaijXmce2N" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,6 +48,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\recipe\mysite\templates" />
+      <recent name="C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\recipe\mysite\CreateEditRecipe\static" />
       <recent name="C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\recipe\Test" />
     </key>
   </component>
@@ -74,7 +74,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
