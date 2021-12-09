@@ -11,25 +11,25 @@
 {% extends "header.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
+{% load static %}
 <div class="d-flex justify-content-center align-items-center container border" style="padding: 2%">
-    <form method="POST" class="row gx-4 gy-4">
+    <form method="POST" class="row gx-4 gy-4" id="RecipeForm">
         {% csrf_token %}
-        <!-- form for Recipe model -->
-        {{form | crispy}}
+        {{ form | crispy }}
         {{ Ingredients.management_form }}
         <!-- forms for all of the ingredient models -->
         <div id="Ingredient_forms" name="Ingredient_forms">
             <h3>Ingredients: </h3>
             {% for Ingredient in Ingredients.forms %}
-                <div {% if Ingredient.Delete.value %} style="display: none" {% endif %} class="d-flex align-items-center">
-                    {{ Ingredient.IngredientName | as_crispy_field }}
-                    {{ Ingredient.Quantity | as_crispy_field }}
-                    {{ Ingredient.Unit | as_crispy_field }}
-                    <p style="display: none" name="Delete">{{ Ingredient.DELETE }}</p>
-                    <p style="display: none" name="Delete">{{ Ingredient.id }}</p>
-                    <!-- allows you to delete this form from the database upon submitting -->
-                    <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
-                </div>
+            <div {% if Ingredient.Delete.value %} style="display: none" {% endif %} class="d-flex align-items-center">
+                {{ Ingredient.IngredientName | as_crispy_field }}
+                {{ Ingredient.Quantity | as_crispy_field }}
+                {{ Ingredient.Unit | as_crispy_field }}
+                <p style="display: none" name="Delete">{{ Ingredient.DELETE }}</p>
+                <p style="display: none" name="Delete">{{ Ingredient.id }}</p>
+                <!-- allows you to delete this form from the database upon submitting -->
+                <input class="btn btn-danger delete-ingredient btn-sm" type="button" value="-">
+            </div>
             {% endfor %}
         </div>
         <!-- adds another Ingredient form -->
@@ -51,13 +51,13 @@
         <div id="Step_forms">
             <h3>Directions: </h3>
             {% for Step in Steps.forms %}
-                <div style="{% if Step.Delete.value %} display: none; {% endif %} {% if Step.isSubStep.value %} margin-left: 8% {% endif %}" class="d-flex align-items-center">
-                    {{ Step.Step | as_crispy_field}}
-                    <p style="display: none" name="Delete">{{ Step.DELETE }}</p>
-                    <p style="display: none" name="Delete">{{ Step.id }}</p>
-                    <!-- allows you to delete this form from the database upon submitting -->
-                    <input class="btn btn-danger delete-step" type="button" value="-">
-                </div>
+            <div style="{% if Step.Delete.value %} display: none; {% endif %} {% if Step.isSubStep.value %} margin-left: 8% {% endif %}" class="d-flex align-items-center">
+                {{ Step.Step | as_crispy_field}}
+                <p style="display: none" name="Delete">{{ Step.DELETE }}</p>
+                <p style="display: none" name="Delete">{{ Step.id }}</p>
+                <!-- allows you to delete this form from the database upon submitting -->
+                <input class="btn btn-danger delete-step" type="button" value="-">
+            </div>
             {% endfor %}
         </div>
         <!-- for copying -->
@@ -122,5 +122,11 @@
       ev.target.appendChild(document.getElementById(data));
     }
 </script>
+<script type="text/babel">
+    var context = {
+        recipe : {{ form | crispy }}
+    };
+</script>
+
 {% endblock %}
 </html>
